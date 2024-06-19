@@ -31,4 +31,4 @@ plugin_attr:
   prometheus:
     export_addr:
       ip: "0.0.0.0"
-      port: 9091
+      port: 9011
