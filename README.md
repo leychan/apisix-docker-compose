@@ -19,6 +19,8 @@ http://localhost:9090
 ## 新增路由
 ### 常规配置
 ![alt text](image-2.png)
+### 实现转写
+![alt text](image-9.png)
 ### 流量控制
 #### 设置
 ![alt text](image-3.png)
