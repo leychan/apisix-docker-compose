@@ -24,11 +24,32 @@ services:
       - etcd
     ##network_mode: host
     ports:
+    # admin api管理端口,通过http管理配置
       - "9180:9180/tcp"
+    # 服务端口,类似nginx 80
       - "9080:9080/tcp"
       - "9091:9091/tcp"
+    # 服务端口,类似nginx 443
       - "9443:9443/tcp"
+    # control api,暴露apisix内部状态,以及用来控制单个apisix数据平面的行为
       - "9092:9092/tcp"
+    networks:
+      apisix-network:
+
+  apisix2:
+    image: apache/apisix:${APISIX_IMAGE_TAG:-3.9.0-debian}
+    restart: always
+    volumes:
+      - ./apisix/conf2.yaml:/usr/local/apisix/conf/config.yaml:ro
+    depends_on:
+      - etcd
+    ##network_mode: host
+    ports:
+      - "9181:9180/tcp"
+      - "9081:9080/tcp"
+      - "9095:9091/tcp"
+      - "9445:9443/tcp"
+      - "9093:9092/tcp"
     networks:
       apisix-network:
 
