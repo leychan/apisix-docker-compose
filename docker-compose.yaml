@@ -1,5 +1,3 @@
-version: "3"
-
 networks:
   apisix-network:
     driver: bridge
@@ -18,7 +16,7 @@ services:
       apisix-network:
 
   apisix:
-    image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}
+    image: apache/apisix:${APISIX_IMAGE_TAG:-3.9.0-debian}
     restart: always
     volumes:
       - ./apisix/conf.yaml:/usr/local/apisix/conf/config.yaml:ro
