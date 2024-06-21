@@ -20,6 +20,7 @@ services:
     restart: always
     volumes:
       - ./apisix/conf.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/logs/:/usr/local/apisix/logs
     depends_on:
       - etcd
     ##network_mode: host
